@@ -41,12 +41,9 @@ export default {
   methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
-        this.$auth.setUser(response.data.user)
-        this.$axios.post('/logs', { action: 'login', user: response.data.user._id })
-        console.log('eingeloggt')
+        const user = await this.$strapi.login(this.login)
+        this.$router.push("/")
       } catch (err) {
-        this.$toast.error('Ups, der Benutzername oder das Kennwort war leider falsch')
         console.log(err)
       }
     },

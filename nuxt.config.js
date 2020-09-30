@@ -1,5 +1,4 @@
 export default {
-  mode: 'universal',
   head: {
     htmlAttrs: {
       lang: 'de'
@@ -31,9 +30,8 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/auth',
     '@nuxtjs/toast',
+    '@nuxtjs/strapi'
   ],
 
   toast: {
@@ -43,32 +41,12 @@ export default {
 
   },
 
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: '/auth/local',
-            method: 'post',
-            propertyName: 'jwt'
-          },
-          user: false,
-          logout: false,
-        },
-        autoFetchUser: false
-      }
-    },
-    redirect: {
-      login: '/login',
-      logout: '/login',
-      home: '/'
-    }
+  strapi: {
+    url: 'https://versammlungs-api.muellercornelius.de/',
+    entities: [
+      { name: 'notices', type: 'collection' }
+    ]
   },
-  axios: {
-    baseURL: 'strapiUrl'
-  },
+
   build: {},
-  router: {
-    middleware: ['auth']
-  }
 }
