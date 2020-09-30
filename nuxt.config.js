@@ -42,7 +42,6 @@ export default {
   },
 
   strapi: {
-    url: 'https://versammlungs-api.muellercornelius.de/',
     entities: [
       { name: 'notices', type: 'collection' }
     ]
