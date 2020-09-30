@@ -23,6 +23,9 @@ $ npm install
 $ npm run dev
 ```
 
+
+## Helpful Links ;)
+
 Link to the Nuxt Documentation: https://nuxtjs.org
 
 Link to the Nuxt Strapi Documentation: https://strapi.nuxtjs.org/
